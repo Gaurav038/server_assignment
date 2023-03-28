@@ -68,7 +68,7 @@ router.get('/auth',(req, res) => {
 )
 
 router.get('/logout',(req, res) => {
-  res.cookie("token", null, {
+  res.cookie("authtoken", null, {
     expires: new Date(Date.now()),
     httpOnly: true,
   });
