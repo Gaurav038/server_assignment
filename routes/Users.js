@@ -68,14 +68,13 @@ router.get('/auth',(req, res) => {
 )
 
 router.get('/logout',(req, res) => {
-  res.cookie("authtoken", null, {
-    expires: new Date(Date.now()),
-    httpOnly: true,
+  res.status(200).clearCookie('authtoken', {
+    path: '/'
   });
   res.status(200).json({
-    success: true,
-    message: "logged Out",
-  });
+      success: true,
+      message: "logged Out",
+    });
 })
 
 module.exports = router;
